@@ -1,9 +1,11 @@
 class Planet:
-    pass
+    def __init__(self, name, distance_from_sun):
+        self.name = name
+        self.distance_from_sun = distance_from_sun
 
 
-earth = Planet()
-mars = Planet()
+earth = Planet("Earth", 200)
+mars = Planet("Mars", 500)
 
 '''
 dynamically add instance attributes 
@@ -15,11 +17,14 @@ print(earth.name)
 earth.speed = 10000
 print(earth.speed)
 
-# print(mars.name)
+# print(mars.speed)
 '''
-print(mars.name)
-AttributeError: 'Planet' object has no attribute 'name'
+print(mars.speed)
+AttributeError: 'Planet' object has no attribute 'speed'
 '''
+
+# an object is just a HashMap (dictionary)
+# you can add attributes and values
 
 
 
