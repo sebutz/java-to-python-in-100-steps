@@ -1,3 +1,7 @@
+from functools import total_ordering
+
+
+@total_ordering  # you need to implement only __eq__ and one of the big four: gt, lt, ge, le
 class Money:
     def __init__(self, currency, amount):
         self.currency = currency
@@ -29,18 +33,22 @@ class Money:
         # comparing tuples
         return (self.currency, self.amount) == (other.currency, other.amount)
 
-    def __gt__(self, other):
-        return (self.currency, self.amount) > (other.currency, other.amount)
-
-    def __lt__(self, other):
-        return (self.currency, self.amount) < (other.currency, other.amount)
+    # def __gt__(self, other):
+    #     return (self.currency, self.amount) > (other.currency, other.amount)
+    #
+    # def __lt__(self, other):
+    #     return (self.currency, self.amount) < (other.currency, other.amount)
+    #
+    # def __ge__(self, other):
+    #     return (self.currency, self.amount) >= (other.currency, other.amount)
+    #
+    # def __le__(self, other):
+    #     return (self.currency, self.amount) <= (other.currency, other.amount)
 
     def __ge__(self, other):
         return (self.currency, self.amount) >= (other.currency, other.amount)
 
-    def __le__(self, other):
-        return (self.currency, self.amount) <= (other.currency, other.amount)
-
+#     return (self.currency, self.amount) >= (other.currency, other.amount)
 
 money1 = Money('EUR', 10)
 money2 = Money('EUR', 20)
@@ -56,6 +64,3 @@ money1  < money2, True
 money1 == money2 ? False
 money1 > money2 ? False
 '''
-
-
-
